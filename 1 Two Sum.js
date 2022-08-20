@@ -3,14 +3,14 @@
 const nums = [2, 7, 11, 15];
 const target = 9;
 const twoSums = (nums, target) => {
-  const ref = [];
+  const ref = new Map();
   let remainder;
   for (i in nums) {
     remainder = target - nums[i];
-    if (ref[remainder]) {
-      return [i, ref[remainder]].sort();
+    if (ref.get(remainder)) {
+      return [i, ref.get(remainder)];
     } else {
-      ref[nums[i]] = i;
+      ref.set(nums[i], i);
     }
   }
 };
