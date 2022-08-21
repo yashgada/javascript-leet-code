@@ -11,10 +11,9 @@ const generate = (numRows) => {
       ans.push([1, 1]);
       continue;
     }
-    let arr = new Array(i + 1).fill(0);
+    let arr = new Array(i + 1).fill(1);
     for (let j = 0; j < arr.length; j++) {
       if (j === 0 || j === arr.length - 1) {
-        arr[j] = 1;
         continue;
       }
       arr[j] = ans[i - 1][j - 1] + ans[i - 1][j];
