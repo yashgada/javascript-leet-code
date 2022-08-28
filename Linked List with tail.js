@@ -24,7 +24,7 @@ class TailedLinkedList {
       str += curr.value + " ";
       curr = curr.next;
     }
-    console.log(str);
+    // console.log(str);
     return str;
   }
   prepend(value) {
@@ -36,12 +36,17 @@ class TailedLinkedList {
   }
   append(value) {
     const node = new Node(value);
-    this.tail.next = node;
-    this.tail = node;
+    if (this.isEmpty()) {
+      this.head = node;
+      this.tail = node;
+    } else {
+      this.tail.next = node;
+      this.tail = node;
+    }
     this.size++;
   }
   getSize() {
-    console.log(this.size);
+    // console.log(this.size);
     return this.size;
   }
   removeFromFront() {
